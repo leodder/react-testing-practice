@@ -9,5 +9,12 @@ describe("Greet", () => {
     const heading = screen.getByRole("heading");
     expect(heading).toHaveTextContent("Hello John");
     expect(heading).toBeInTheDocument();
+    expect(heading).toHaveTextContent(/john/i)
+  });
+  it("should render Login button when name is not provided", () => {
+    render(<Greet />);
+    const button = screen.getByRole("button");
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveTextContent(/Login/i);
   });
 });
